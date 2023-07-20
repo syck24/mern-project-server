@@ -8,7 +8,13 @@ const {
   IP_SERVER,
 } = require("./constants");
 
-const PORT = process.env.POST || 3977;
+// Use PORT provided in environment or default to 3000
+const port = process.env.PORT || 3000;
+
+// Listen on `port` and 0.0.0.0
+app.listen(port, "0.0.0.0", function () {
+  // ...
+});
 
 mongoose
   .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/`)
@@ -18,7 +24,7 @@ mongoose
       console.log("##################");
       console.log("#### API REST ####");
       console.log("##################");
-      console.log(`http://${IP_SERVER}:${PORT}/api/${API_VERSION}`);
+      console.log(`http://${IP_SERVER}:${port}/api/${API_VERSION}`);
     });
   })
   .catch((error) => {
