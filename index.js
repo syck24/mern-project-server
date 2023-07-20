@@ -11,7 +11,7 @@ const {
 const PORT = process.env.POST || 3977;
 
 mongoose
-  .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${a}/`)
+  .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/`)
   .then((respuesta) => {
     console.log("Conexión Exitante!");
     app.listen(PORT, () => {
